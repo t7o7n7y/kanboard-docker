@@ -8,7 +8,8 @@ mkdir public_html
 # 2.Then create a file "index.html":
 
 ```
-echo "<!doctype html>
+echo
+ "<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -20,8 +21,8 @@ echo "<!doctype html>
   <h2>Look's like it's work!</h2>
 
 </body>
-</html>
-> ./index.html
+</html>"
+ > ./index.html
 ```
 # 3.Run docker-compose.yml file from repository:
 ```
