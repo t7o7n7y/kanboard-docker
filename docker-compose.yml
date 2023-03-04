@@ -1,0 +1,54 @@
+networks:
+  tony_kanboard:
+    driver: bridge
+
+services: 
+
+  db:
+    image: mysql/mysql-server:8.0.32
+    container_name: mysql
+    restart: always
+    networks:
+      tony_kanboard:
+    environment:
+      -  MYSQL_ROOT_PASSWORD=777
+      -  MYSQL_ROOT_HOST=% 
+      -  MYSQL_DATABASE=kanboard
+      -  MYSQL_USER=kanboard
+      -  MYSQL_PASSWORD=kanboard  
+    ports:
+      - '3306'
+    volumes:
+      - db:/var/lib/mysql  
+
+  web:
+    image: nginx
+    container_name: nginx
+    restart: always
+    networks:
+      tony_kanboard:
+    volumes:
+      - ./public_html:/usr/share/nginx/html
+    ports:
+      - '8080:80'
+
+  kanboard:
+    image: kanboard/kanboard:v1.2.19
+    container_name: kanboard
+    networks:
+      tony_kanboard:       
+    environment:
+      -  DATABASE_HOST=db
+      -  DATABASE_USER=kanboard
+      -  DATABASE_PASSWORD=kanboard
+      -  DATABASE_NAME=kanboard
+    depends_on:
+      -  db
+    volumes:
+      - kanboard:/var/lib/kanboard
+    ports:
+      - '8888:80'
+
+volumes:
+  db:
+  kanboard:
