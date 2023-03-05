@@ -42,6 +42,7 @@ services:
       -  DATABASE_USER=kanboard
       -  DATABASE_PASSWORD=kanboard
       -  DATABASE_NAME=kanboard
+      -  PLUGIN_INSTALLER=true
     depends_on:
       -  db
     volumes:
