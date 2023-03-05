@@ -45,10 +45,14 @@ services:
     depends_on:
       -  db
     volumes:
-      - kanboard:/var/lib/kanboard
+      - kanboard_data:/var/www/app/data
+      - kanboard_plugins:/var/www/app/plugins
+      - kanboard_ssl:/etc/nginx/ssl
     ports:
       - '8888:80'
 
 volumes:
   db:
-  kanboard:
+  kanboard_data:
+  kanboard_plugins:
+  kanboard_ssl:
