@@ -1,15 +1,11 @@
-# kanboard-docker
 # This will install kanboard and nginx containers
-# 1.Create a directory "public_html":
+# 1.Clone this repository:
 ```
-mkdir public_html
+git clone https://github.com/t7o7n7y/kanboard-docker.git
 ```
 
-# 2.Then create a file "index.html" from repository inside the "public_html:
+# 2.Run command:
 
-# 3.Copy the docker-compose.yml file from repository:
-
-# 4.Run docker-compose.yml file:
 ```
 sudo docker compose up -d
 ```
@@ -19,13 +15,16 @@ sudo docker compose up -d
 sudo docker-compose up -d
 ```
 
-# 4.Now run in your browser:
+# 3.Now run in your browser:
 ```
 localhost:8080
 ```
 
-# 5.For Kanboard app run in your browser:
+# 4.For Kanboard app run in your browser:
 ```
 localhost:8888/login
 ```
+
+# 5.The user and password for Kanboard are default "admin, admin"
+
 
